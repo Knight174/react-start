@@ -1,0 +1,38 @@
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script type="text/javascript">
+    // React for creating the elements and ReactDOM for rendering those elements to the page.
+    const rootElement = document.getElementById("root");
+    const element = React.createElement("div", {
+      children: "Hello World",
+      className: "container",
+    });
+    // element1 等价于 element2 的写法
+    const element1 = React.createElement(
+      "div",
+      {
+        className: "container",
+      },
+      "Hello World",
+      ", Good bye!"
+    );
+    const element2 = React.createElement("div", {
+      children: ["Hello World", ", Good bye!"],
+      className: "container",
+    });
+    // 多级嵌套语法
+    const element3 = React.createElement("div", {
+      children: React.createElement("span", null, "hello, span."),
+      className: "container",
+    });
+    console.log(element3);
+    ReactDOM.render(element3, rootElement);
+    // const element = document.createElement("div");
+    // element.textContent = "Hello World";
+    // element.classList = "container";
+    // rootElement.appendChild(element);
+  </script>
+</body>
