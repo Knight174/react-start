@@ -1,0 +1,35 @@
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById("root");
+    const message = <div className="message">Hello World</div>; // 元素
+    const Message2 = (props) => <div className="message">{props.msg}</div>; // 组件
+    const Message3 = (props) => <div className="message">{props.children}</div>; // 组件（有点像插槽，待验证）
+
+    console.log(<div>Hello World1</div>);
+    console.log(<Message2>Hello World2</Message2>);
+
+    const element = (
+      <div className="container">
+        {message}
+        {message}
+        <br />
+        {Message2({ msg: "Hello World--2-1" })}
+        {Message2({ msg: "Bye World--2-1" })}
+        <br />
+        <Message2 msg="Hello World--2-2"></Message2>
+        <Message2 msg="Bye World--2-2"></Message2>
+        <br />
+        <Message3 children="Hello World--3-1"></Message3>
+        <Message3>
+          Bye World--3-1 <h1>hi</h1>
+        </Message3>
+      </div>
+    );
+    ReactDOM.render(element, rootElement);
+  </script>
+</body>
