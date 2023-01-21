@@ -13,7 +13,7 @@
       );
       React.useEffect(() => {
         window.localStorage.setItem(key, state);
-      });
+      }, [key, state]);
       return [state, setState];
     }
     function Greeting() {
