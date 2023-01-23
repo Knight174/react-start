@@ -6,3 +6,6 @@
 
 Create a User Interface with Vanilla JavaScript and DOM
 
+# 2023.1.23
+
+Finish Course
